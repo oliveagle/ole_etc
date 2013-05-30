@@ -1,4 +1,4 @@
 ole_etc
 =======
 
-myself configuration files
+my configuration files
