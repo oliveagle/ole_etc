@@ -444,9 +444,9 @@ set ffs=unix,dos,mac
 " cltr-x    cut  content into system clipboard.
 " cltr-p    paste system clipboard content .
 " cltr-a    select all
-vmap <silent> <C-c> "*y
-vmap <silent> <C-x> "*x
-nmap <silent> <C-p> "*p
+vmap <silent> <C-c> "+y
+vmap <silent> <C-x> "+x
+nmap <silent> <C-p> "+p
 nmap <silent> <C-a> ggVG
 
 "Add the virtualenv's site-packages to vim path
