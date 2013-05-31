@@ -1,12 +1,15 @@
-"------------------------------------------------------------------------------
+"------------------------------------------------------------------------
 " my own vimrc based on fisa_vim[https://github.com/fisadev/fisa-vim-config]
 " 
 " 2013_05_30-16:27
 "  oliveagle@gmail.com
-"------------------------------------------------------------------------------
+"------------------------------------------------------------------------
 syntax on
 
-" ------------------------------------------------------------------------------
+let g:email='oliveagle@gmail.com'
+let g:username='oliveagle'
+
+" -----------------------------------------------------------------------
 "   Vundle 
 " ------------ 
 
@@ -34,7 +37,7 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
-" -----------------------------------------------------------------------------
+" -----------------------------------------------------------------------
 "  Bundles
 " ------------
 
@@ -101,15 +104,20 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'matchit.zip'
 Bundle 'nono/jquery.vim'
 Bundle 'wavded/vim-stylus'
+Bundle 'godlygeek/tabular'
 
 " ------------------
-"  Snippets
+"  Snippets/Templates
 " ------------------
 " Snippets manager (SnipMate), dependencies, and snippets repo
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'honza/vim-snippets'
+"Bundle 'honza/vim-snippets'
+" my own vim snippets forked from honza
+Bundle 'oliveagle/vim-snippets'
 Bundle 'garbas/vim-snipmate'
+" my own vim template forked from aperezdec
+Bundle 'oliveagle/vim-template'
 
 " ------------------
 "  Git
@@ -118,6 +126,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'motemen/git-vim'
 " Git diff icons on the side of the file lines
 Bundle 'airblade/vim-gitgutter'
+Bundle 'mattn/gist-vim'
 
 
 " ------------------
@@ -132,9 +141,16 @@ Bundle 'tpope/vim-surround'
 " Autoclose
 Bundle 'Townk/vim-autoclose'
 
+" -----------------
+"  Python
+" -----------------
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
 Bundle 'klen/python-mode'
+"Bundle 'KangOl/vim-pudb'
+" my own fork of vim-pudb, fixed a little problem
+Bundle 'oliveagle/vim-pudb'
+
 
 " ------------------
 "  misc.  
@@ -182,20 +198,12 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
-" always show status bar
-set ls=2
+set ls=2                        " always show status bar
+set incsearch                   " incremental search
+set hlsearch                    " highlighted search results
+set ignorecase                  " ignore case while searching
+set nu                          " line numbers
 
-" incremental search
-set incsearch
-
-" highlighted search results
-set hlsearch
-
-" ignore case while searching
-set ignorecase
-
-" line numbers
-set nu
 
 " toggle Tagbar display
 map <F4> :TagbarToggle<CR>
@@ -479,5 +487,18 @@ map <F6> :BufExplorer<CR>
 
 
 "日期快捷键
-map de !!date<CR>
-imap <F12> <C-R>=strftime("%Y_%m_%d-%H:%M")<CR>
+"map de !!date<CR>
+"imap <F12> <C-R>=strftime("%Y_%m_%d-%H:%M")<CR>
+iab idate <c-r>=strftime("%Y-%m-%d")<CR>
+iab itime <c-r>=strftime("%H:%M")<CR>
+iab idatetime <c-r>=strftime("%Y-%m-%d %H:%M")<CR>
+iab imail Oliver <oliveagle@gmail.com>
+
+
+
+" vim-pudb, manage pudb breakpoints in vim. 
+nnoremap <F7> :TogglePudbBreakPoint<CR>
+inoremap <F7> <ESC>:TogglePudbBreakPoint<CR>a
+
+nmap <F6> <ESC>:w<cr>:!python %<cr>
+nmap <C-F6> <ESC>:w<cr>:!nosetests %<cr>
