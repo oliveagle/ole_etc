@@ -170,6 +170,8 @@ Bundle 'oliveagle/vim-pudb'
 
 " Bundles from vim-scripts repos
 
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
 
 
 "  --------------- place all bundles above this line -----------------------
@@ -497,8 +499,8 @@ iab imail Oliver <oliveagle@gmail.com>
 
 
 " vim-pudb, manage pudb breakpoints in vim. 
-nnoremap <F7> :TogglePudbBreakPoint<CR>
-inoremap <F7> <ESC>:TogglePudbBreakPoint<CR>a
+nnoremap <F9> :TogglePudbBreakPoint<CR>
+inoremap <F9> <ESC>:TogglePudbBreakPoint<CR>a
 
-nmap <F6> <ESC>:w<cr>:!python %<cr>
-nmap <C-F6> <ESC>:w<cr>:!nosetests %<cr>
+nmap <F7> <ESC>:w<cr>:!python %<cr>
+nmap <C-F7> <ESC>:w<cr>:!nosetests %<cr>
