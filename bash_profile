@@ -15,7 +15,7 @@ alias -- -='cd -'           # go to previous dir '-<rt>'
 #alias ls='pwd; ls -GFh'     # print pwd and use color
 #alias ls='ls -GFh'
 alias ls='ls --color=auto'
-alias ll='ls -l'         # sort list
+alias ll='ls -lh'         # sort list
 alias l.='ll -d .*'         # list hidden files
 alias lld='ll -ltd */'      # list directories
 alias du='du -ch'           # disk usage 
@@ -49,4 +49,14 @@ alias git_completion="curl -o ~/.git-completion.bash https://github.com/git/git/
 
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
-PS1='[\[\033[35m\]\u@\h \[\033[34m\]\W \[\033[32m\]$(__git_ps1 "(%s)")\[\033[0m\]]\$ '
+uid=`id -u`
+if [[ "$uid" == "0" ]]; then
+    # red when login as root
+    PS1='[\[\033[31m\]\u@\h \[\033[34m\]\W \[\033[32m\]$(__git_ps1 "(%s)")\[\033[0m\]]\$ '
+else
+    PS1='[\[\033[35m\]\u@\h \[\033[34m\]\W \[\033[32m\]$(__git_ps1 "(%s)")\[\033[0m\]]\$ '
+fi
+
+# python pip cache location.
+export PIP_DOWNLOAD_CACHE="/home/oliveagle/Archives/python_packages/pip_cache/"
+
