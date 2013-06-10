@@ -55,6 +55,7 @@ Bundle 'Wombat'
 Bundle 'kien/ctrlp.vim'
 " Search results counter
 Bundle 'IndexedSearch'
+Bundle 'mileszs/ack.vim'
 
 " ------------------
 "  Navigation/Layout
