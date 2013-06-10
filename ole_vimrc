@@ -504,3 +504,8 @@ inoremap <F9> <ESC>:TogglePudbBreakPoint<CR>a
 
 nmap <F7> <ESC>:w<cr>:!python %<cr>
 nmap <C-F7> <ESC>:w<cr>:!nosetests %<cr>
+
+
+" session management
+"let g:session_autoload = 'no'
+let g:session_autosave = 'yes'
